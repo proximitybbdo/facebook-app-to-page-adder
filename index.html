@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Proximity Facebook App Adder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .container {
+        padding-top: 50px; 
+      }
+
+
+    </style>
+  </head>
+  <body data-spy="scroll" data-offset="50">
+    
+    <div class="container">
+
+      <h1>Add Facebook App to Fanpage</h1>
+
+      <hr class="soften">
+
+      <form class="form-horizontal" id="add-app-form">
+        <fieldset>
+          <legend>Fill in your Applicaton and Fanpage details</legend>
+
+          <div class="control-group">
+            <label class="control-label" for="app-key">Application Key</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="app-key">
+              <p class="help-block">You can find ...</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="page-id">Page ID</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="page-id">
+              <p class="help-block">You can find ...</p>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add your application</button>
+            <button class="btn">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+      </footer>
+
+    </div><!-- /container -->
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('#add-app-form').submit(function() {
+            var app_key = $(this).find('#app-key').val();
+            var page_id = $(this).find('#page-id').val();
+            var is_valid = true;
+    
+            if(app_key.length == 0) {
+              is_valid = false; 
+
+              $(this).find('#app-key').parent().parent().addClass('error');
+            } else {
+              $(this).find('#app-key').parent().parent().removeClass('error');
+            }
+
+            if(page_id.length == 0) {
+              is_valid = false; 
+
+              $(this).find('#page-id').parent().parent().addClass('error');
+            } else {
+              $(this).find('#page-id').parent().parent().removeClass('error');
+            }
+
+            if(is_valid) {
+              var url = "http://facebook.com/add.php?api_key=" + app_key + "&pages=1&page=" + page_id;
+
+              window.open(url);
+            }
+
+            return false;   
+          });
+      });
+    </script>
+
+  </body>
+</html>
