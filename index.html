@@ -17,8 +17,6 @@
       .container {
         padding-top: 50px; 
       }
-
-
     </style>
   </head>
   <body data-spy="scroll" data-offset="50">
@@ -37,15 +35,7 @@
             <label class="control-label" for="app-key">Application Key</label>
             <div class="controls">
               <input type="text" class="input-xlarge" id="app-key">
-              <p class="help-block">You can find ...</p>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label" for="page-id">Page ID</label>
-            <div class="controls">
-              <input type="text" class="input-xlarge" id="page-id">
-              <p class="help-block">You can find ...</p>
+              <p class="help-block">You can find it at <a href="https://developers.facebook.com/apps">https://developers.facebook.com/apps</a></p>
             </div>
           </div>
 
@@ -89,7 +79,7 @@
             }
 
             if(is_valid) {
-              var url = "http://facebook.com/add.php?api_key=" + app_key + "&pages=1&page=" + page_id;
+              var url = "http://facebook.com/add.php?api_key=" + app_key + "&pages=1";
 
               window.open(url);
             }
