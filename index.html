@@ -59,7 +59,6 @@
       $(document).ready(function() {
           $('#add-app-form').submit(function() {
             var app_key = $(this).find('#app-key').val();
-            var page_id = $(this).find('#page-id').val();
             var is_valid = true;
     
             if(app_key.length == 0) {
@@ -68,14 +67,6 @@
               $(this).find('#app-key').parent().parent().addClass('error');
             } else {
               $(this).find('#app-key').parent().parent().removeClass('error');
-            }
-
-            if(page_id.length == 0) {
-              is_valid = false; 
-
-              $(this).find('#page-id').parent().parent().addClass('error');
-            } else {
-              $(this).find('#page-id').parent().parent().removeClass('error');
             }
 
             if(is_valid) {
